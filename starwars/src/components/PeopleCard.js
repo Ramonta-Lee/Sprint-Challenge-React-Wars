@@ -26,6 +26,8 @@ const PeopleCard = props => {
   //  return ([props])
   // }
 
+  
+
   return (
     <>
       {people.map(props => {
@@ -46,7 +48,7 @@ const PeopleCard = props => {
                 <br />
                 Gender: {props.gender}
               </Stats>
-              <Button color="primary" size="lg">
+              <Button  color="primary" size="lg">
                 Learn More
               </Button>{" "}
             </StyledCard>

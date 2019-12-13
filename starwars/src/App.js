@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState, useEffect, useLayoutEffect } from "react";
+import Doggo from "./components/doggo";
 import "./App.css";
 import axios from "axios";
 import PeopleCard from "./components/PeopleCard";
@@ -25,6 +25,16 @@ const App = () => {
       .catch(error => console.log("Sorry no people", error));
   }, []);
 
+  function handleMouseEnter() {
+    setMouseOver(true);
+  }
+
+  function handleMouseLeave() {
+    setMouseOver(false);
+  }
+
+  const [mouseOver, setMouseOver] = useState(false);
+
   return (
     <div className="App">
       <Pagination aria-label="Page navigation example">
@@ -38,7 +48,7 @@ const App = () => {
           <PaginationLink href="#home">1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink href="#">2</PaginationLink>
+          <PaginationLink target="_blank"  href="#">2</PaginationLink>
         </PaginationItem>
         <PaginationItem>
           <PaginationLink next href="#" />
@@ -47,7 +57,14 @@ const App = () => {
           <PaginationLink last href="#" />
         </PaginationItem>
       </Pagination>
-      <h1 className="Header">React Wars</h1>
+      <h1
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+        style={{ color: mouseOver ? "red" : "black" }}
+        className="Header"
+      >
+        React Wars
+      </h1>
       <PeopleCard people={people} />
     </div>
   );
