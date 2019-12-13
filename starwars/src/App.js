@@ -23,6 +23,7 @@ const App = () => {
       })
       .catch(error => console.log("Sorry no people", error));
   }, []);
+ 
 
   return (
     <div className="App">

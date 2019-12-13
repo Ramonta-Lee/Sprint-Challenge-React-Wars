@@ -14,7 +14,7 @@ const NameText = styled.h1`
 
 const Stats = styled.p`
   font-size: 1.5rem;
-  color: blue;
+  color: purple;
 `;
 
 const PeopleCard = props => {
@@ -46,7 +46,9 @@ const PeopleCard = props => {
                 <br />
                 Gender: {props.gender}
               </Stats>
-              <Button>Button</Button>
+              <Button color="primary" size="lg">
+                Learn More
+              </Button>{" "}
             </StyledCard>
 
             {/* <h1>Name: {props.name} </h1>
