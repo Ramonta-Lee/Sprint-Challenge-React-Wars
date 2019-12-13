@@ -26,13 +26,27 @@ Demonstrate your understanding of this Sprint's concepts by answering the follow
 
 - [ ] What is React JS and what problems does it try and solve? Support your answer with concepts introduced in class and from your personal research on the web.
 
+React JS is a library built in JS to build out UI. We use components to build out the UI. It was built to handle complex state or what the user interacts with on the webpage. These changes in state is what gives us the functionality that we get with our websites today. With all the data that was coming in Facebook needed a way to handle all that data so their team created React. Components are scalable, reusable pieces of code that can be used over and over again to render things to the screen via the virtual DOM. Components have the ability to update and maintain their own state which makes managing the data so much easier. The only thing React cares about is rendering the UI to the screen. For example whenever we would GET data from an api we were able to store that data in a component and manage its changes of state. This ability for components to manage and store incoming data is what makes React so powerful on top of its reusability and scalability
+
 - [ ] What does it mean to _think_ in react?
+
+It means to think in components. Break things into smaller parts to better manage the data and its state
 
 - [ ] Describe state.
 
+React components have a built-in state object.
+
+The state object is where you store property values that belongs to the component.
+
+When the state object changes, the component re-renders and updates those changes to the DOM
+
 - [ ] Describe props.
 
+Props are the properties on a parent component that we can then pass to other components by calling in those (properties) props as the parameter to the component function.
+
 - [ ] What are side effects, and how do you sync effects in a React component to state or prop changes?
+
+Side effects are anything that affects something outside the scope of the function being executed. A Get request, console.logs, timers, etc are examples of side effects. Synching those effects are accomplished through useState/useEffect
 
 ## Project Set Up
 
@@ -45,22 +59,21 @@ Follow these steps to set up and work on your project:
 - [ ] Change directories into `./starwars` (`cd starwars`) and run `yarn install` or `npm install` to retrieve all needed dependencies.
 - [ ] Once you have installed the _node_modules_, run `yarn start` or `npm start` to get your server up and running.
 - [ ] With the server up and running, open Chrome and head over to `localhost:3000` and view your beautiful app. Maybe it's not _that_ pretty... _yet_, your goal is to ensure this project becomes a thing of beauty.
-Follow these steps for completing your project.
+      Follow these steps for completing your project.
 - [ ] Implement the project on this Branch, **committing progress & changes often.**
 - [ ] Push commits: `git push origin <firstName-lastName>`.
 
 Follow these steps for completing your project:
 
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's  Repo).
+- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into master (student's Repo).
 - [ ] Add your Project Manager as a Reviewer on the Pull-request.
 - [ ] TL then will count the HW as done by merging the branch back into master.
-
 
 ## Minimum Viable Product
 
 Your finished project must include all of the following requirements:
 
-- [ ] Fetch a list of Star Wars characters from the [Star Wars API (or SWAPI)](https://swapi.co/) and render them to the screen. 
+- [ ] Fetch a list of Star Wars characters from the [Star Wars API (or SWAPI)](https://swapi.co/) and render them to the screen.
 - [ ] Follow the documentation to learn how to fetch a list of "people". However, don't spend _too_ long on this. Here is a link for you to follow if you've looked around the docs for about 15 minutes or so and haven't found where to go - [Secret Link to Awesomeness 🤫](https://swapi.co/documentation#people).
 - [ ] Set the data you fetch to state.
 - [ ] Map over the list and render a component for each character on the page.
@@ -75,11 +88,11 @@ Your finished project must include all of the following requirements:
 - [ ] Spell-check.
 - [ ] Schedule time to review, refine and reassess your work.
 
-
 It is better to submit a challenge that meets [MVP](https://en.wikipedia.org/wiki/Minimum_viable_product) than one that attempts too much and fails.
 
 ## Stretch Problems
-- [ ] Next week we will be looking at React forms. Look a head and try to create a search form that will filter through the data displayed from your characters. 
+
+- [ ] Next week we will be looking at React forms. Look a head and try to create a search form that will filter through the data displayed from your characters.
 
 - [ ] Build a pagination system that will allow you to load the next page of data.
   - `console.log()` the data coming back from the server.
