@@ -1,17 +1,30 @@
 import React from "react";
 import styled from "styled-components";
-import { Card, Button, CardTitle, CardText } from "reactstrap";
+import { Button, CardTitle, CardText } from "reactstrap";
 
 const StyledCard = styled.div`
- width: 50%;
- display: flex;
- flex-direction: column;
- justify-content: center; 
+  background-color: rgba(0, 153, 153, 0.2);
+  border: 3px solid red;
+  margin: 2%;
+`;
 
+const NameText = styled.h1`
+  color: gold;
+`;
+
+const Stats = styled.p`
+  font-size: 1.5rem;
+  color: blue;
 `;
 
 const PeopleCard = props => {
   const { people } = props;
+
+  // if(!props){
+  //  return <h3>Loading...</h3>;
+  // } else{
+  //  return ([props])
+  // }
 
   return (
     <>
@@ -23,14 +36,16 @@ const PeopleCard = props => {
             <StyledCard
               body
               inverse
-              style={{ backgroundColor: "#333", borderColor: "#333" }}
-              width={{width: "30px"}}
+              style={{
+                borderColor: "#333"
+              }}
             >
-              <CardTitle>Name: {props.name}</CardTitle>
-              <CardText>
+              <NameText>Name: {props.name}</NameText>
+              <Stats>
                 Height: {props.height}
+                <br />
                 Gender: {props.gender}
-              </CardText>
+              </Stats>
               <Button>Button</Button>
             </StyledCard>
 
