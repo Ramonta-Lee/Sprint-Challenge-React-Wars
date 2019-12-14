@@ -1,8 +1,7 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import Doggo from "./components/doggo";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import axios from "axios";
-import PeopleCard from "./components/PeopleCard";
+import PeopleCards from "./components/PeopleCard";
 import { Pagination, PaginationItem, PaginationLink } from "reactstrap";
 
 const App = () => {
@@ -10,20 +9,20 @@ const App = () => {
   // the state properties here.
 
   const [people, setPeople] = useState([]);
-
+  const [page, setPage] = useState(1);
   // Fetch characters from the star wars api in an effect hook. Remember, anytime you have a
   // side effect in a component, you want to think about which state and/or props it should
   // sync up with, if any.
 
   useEffect(() => {
     axios
-      .get("https://swapi.co/api/people/")
+      .get("https://swapi.co/api/people?page=" + page)
       .then(response => {
-        // console.log(response.data.results);
+        // console.log(response.data);
         setPeople(response.data.results);
       })
       .catch(error => console.log("Sorry no people", error));
-  }, []);
+  }, [page]);
 
   function handleMouseEnter() {
     setMouseOver(true);
@@ -42,16 +41,30 @@ const App = () => {
           <PaginationLink first href="#" />
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink previous href="#" />
+          <PaginationLink
+            onClick={() => {
+              setPage(page - 1);
+            }}
+            previous
+            href="#"
+          />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink href="#home">1</PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink target="_blank"  href="#">2</PaginationLink>
+          <PaginationLink onClick={() => setPage(2)} href="#">
+            2
+          </PaginationLink>
         </PaginationItem>
         <PaginationItem>
-          <PaginationLink next href="#" />
+          <PaginationLink
+            onClick={() => {
+              setPage(page + 1);
+            }}
+            next
+            href="#"
+          />
         </PaginationItem>
         <PaginationItem>
           <PaginationLink last href="#" />
@@ -65,7 +78,7 @@ const App = () => {
       >
         React Wars
       </h1>
-      <PeopleCard people={people} />
+      <PeopleCards people={people} />
     </div>
   );
 };

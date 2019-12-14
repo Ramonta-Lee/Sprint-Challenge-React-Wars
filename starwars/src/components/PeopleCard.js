@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Button, CardTitle, CardText } from "reactstrap";
+import { Button } from "reactstrap";
 
 const StyledCard = styled.div`
   background-color: rgba(0, 153, 153, 0.2);
@@ -17,7 +17,7 @@ const Stats = styled.p`
   color: purple;
 `;
 
-const PeopleCard = props => {
+function PeopleCards (props){
   const { people } = props;
 
   // if(!props){
@@ -30,37 +30,45 @@ const PeopleCard = props => {
 
   return (
     <>
-      {people.map(props => {
-        console.log(props);
-
-        return (
-          <div>
-            <StyledCard
-              body
-              inverse
-              style={{
-                borderColor: "#333"
-              }}
-            >
-              <NameText>Name: {props.name}</NameText>
-              <Stats>
-                Height: {props.height}
-                <br />
-                Gender: {props.gender}
-              </Stats>
-              <Button  color="primary" size="lg">
-                Learn More
-              </Button>{" "}
-            </StyledCard>
-
-            {/* <h1>Name: {props.name} </h1>
-            <h2>Height: {props.height}</h2>
-            <h3>Gender: {props.gender}</h3> */}
-          </div>
-        );
-      })}
+      {people.map(person => 
+        // console.log(props);
+          <PeopleCard 
+            name={person.name}
+            height={person.height}
+            gender={person.gender} 
+          />
+      )}
     </>
   );
 };
 
-export default PeopleCard;
+function PeopleCard(props){
+  return (
+    <div>
+      <StyledCard
+        body
+        inverse
+        style={{
+          borderColor: "#333"
+        }}
+      >
+        <NameText>Name: {props.name}</NameText>
+        <Stats>
+          Height: {props.height}
+          <br />
+          Gender: {props.gender}
+        </Stats>
+        <Button color="primary" size="lg">
+          Learn More
+        </Button>{" "}
+      </StyledCard>
+
+      {/* <h1>Name: {props.name} </h1>
+            <h2>Height: {props.height}</h2>
+            <h3>Gender: {props.gender}</h3> */}
+    </div>
+  );
+}
+
+
+export default PeopleCards;
